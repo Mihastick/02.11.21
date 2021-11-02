@@ -1,0 +1,53 @@
+.container{
+    width: 40%;
+    margin: 50px auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: smaller;
+}
+.empty-cont{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    border:1px solid black;
+}
+.drop-zone{
+    width: 100px;
+    height:100px;
+    border:1px solid black;
+    margin-top: 0.5em;
+    margin-bottom:0.5em;
+    margin-left:0.5em;
+    margin-right:0.5em;
+}
+.zz{
+    background: blue;
+}
+.zone{
+    width: 100px;
+    height:100px;
+    border:1px solid black;
+    margin-top: 0.5em;
+    margin-bottom:0.5em;
+    margin-left:0.5em;
+    margin-right:0.5em;
+}
+.zone img{
+    width:100%;
+}
+.dz{
+    background-color: coral;
+}
+.drop-zone img{
+    width:100%;
+}
+.zapoln-cont{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    border:1px solid black;
+    margin-top:1em
+}

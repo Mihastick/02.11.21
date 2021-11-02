@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="empty-cont">
+            <div class='zone'><img src="image/bear.png" data-target="predator" alt="" draggable="true" class='img'></div>
+            <div class='zone'><img src="image/тигра.png" data-target="predator" alt="" draggable="true" class='img'></div>
+            <div class='zone'><img src="image/crocodile.png" data-target="predator" alt="" draggable="true" class='img'></div>
+            <div class='zone'><img src="image/elephant.png" alt="" data-target="trava" draggable="true" class='img'></div>
+            <div class='zone'><img src="image/hippopotamus.png" data-target="predator" alt="" draggable="true" class='img'></div>
+            <div class='zone'><img src="image/lion.png" alt="" data-target="predator" draggable="true" class='img'></div>
+            <div class='zone'><img src="image/rabbit.png" alt="" data-target="trava" draggable="true" class='img'></div>
+            <div class='zone'><img src="image/tiger.png" data-target="predator" alt="" draggable="true" class='img'></div>
+        </div>
+        <div class="zapoln-cont">
+            <div class='drop-zone' id='predator'></div>
+            <div class='drop-zone' id='predator'></div>
+            <div class='drop-zone' id='predator'></div>
+            <div class='drop-zone' id='predator'></div>
+            <div class='drop-zone' id='predator'></div>
+            <div class='drop-zone' id='predator'></div>
+        </div>
+    </div>
+    <script>
+
+        let zones = document.querySelectorAll('.drop-zone');
+
+        let currentImg;
+
+        let dragItem = document.querySelectorAll('.img').forEach(item=>{
+            item.addEventListener('dragstart', dragstart);
+            item.addEventListener('dragend', dragend);
+        });
+
+        zones.forEach(zone => {
+            zone.addEventListener('dragenter', dragenter);
+            zone.addEventListener('dragleave', dragleave);
+            zone.addEventListener('dragover', dragover);
+            zone.addEventListener('drop', dragdrop);
+        })
+
+        function dragstart(e) {
+            e.dataTransfer.setData('id',e.target.dataset.target);
+            setTimeout(() => {
+                e.target.style.opacity = "0.01";
+            }, 0);
+
+            currentImg = e.target;
+        }
+
+        function dragover(e) {
+            e.preventDefault();
+        }
+
+        function dragdrop(e){
+            e.preventDefault();
+            // e.target.classList.remove('drop-zone');
+            if(e.target.id === e.dataTransfer.getData('id')){
+                e.target.append(currentImg);
+            }
+        }
+
+        function dragend(e) {
+            e.preventDefault();
+            // e.target.classList.remove('drag-start');
+            e.target.style.opacity = "1";
+        }
+
+        function dragenter(e) {
+            e.preventDefault();
+        }
+        
+        function dragleave(e) {
+            e.preventDefault();
+        }
+        
+    </script>
+</body>
+
+</html>
